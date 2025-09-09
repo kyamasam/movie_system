@@ -6,6 +6,7 @@ from apps.users.serializers.user_serializer import UserSerializer
 class UserViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = UserSerializer
     permission_classes = [IsAuthenticated]
+    queryset = User.objects.all()
 
     def get_queryset(self):
         user = self.request.user
